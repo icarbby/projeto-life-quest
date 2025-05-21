@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Escolhas e Profissões</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .choice { margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Simulador de Escolhas e Profissões</h1>
+    <div id="scenario">
+        <p>Você está no último ano do ensino médio. O que você vai fazer?</p>
+        <button class="choice" onclick="makeChoice('study')">Estudar para as provas</button>
+        <button class="choice" onclick="makeChoice('party')">Ir para a festa com amigos</button>
+    </div>
+
+    <div id="status">
+        <p>Felicidade: <span id="happiness">50</span></p>
+        <p>Riqueza: <span id="wealth">100</span></p>
+        <p>Conhecimento: <span id="knowledge">50</span></p>
+    </div>
+
+    <script>
+        let happiness = 50;
+        let wealth = 100;
+        let knowledge = 50;
+
+        function makeChoice(choice) {
+            if (choice === 'study') {
+                happiness -= 10;
+                knowledge += 20;
+            } else if (choice === 'party') {
+                happiness += 20;
+                knowledge -= 10;
+            }
+
+            document.getElementById("happiness").innerText = happiness;
+            document.getElementById("wealth").innerText = wealth;
+            document.getElementById("knowledge").innerText = knowledge;
+            
+            // Novo cenário após a escolha
+            document.getElementById("scenario").innerHTML = "<p>Você fez sua escolha! Agora, vamos para o próximo desafio.</p>";
+        }
+    </script>
+</body>
+</html>
